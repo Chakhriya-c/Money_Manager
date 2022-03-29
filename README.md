@@ -8,7 +8,7 @@ For Computer programing project
 
 # For Instructor; Project Requirement and etc.
 
-Requirement of the program 
+Requirements of the program 
 
 1. User can enter income and expense using normal ledger format i.e.
 
@@ -21,3 +21,14 @@ For example:
 2. Display summary daily or monthly using tabular form.
  
 3. Easy to use. Program might need a menu for user interface.
+
+ 
+ 
+ 
+Developers :
+
+Kanyanat Prapawesang 
+Punyada Adisaksodsai
+Chakhriya Chantharakhami 
+ 
+Major - Automation Robotics and Intelligence System Engineering 
