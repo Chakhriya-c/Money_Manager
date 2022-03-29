@@ -1,0 +1,61 @@
+#Setup
+from tkinter import * 
+from tkinter import filedialog
+import datetime as dt
+from tkinter import messagebox
+
+#Menu window setup
+menu = Tk()
+menu.geometry("250x200")
+
+#Function and Command Setup
+
+def out_in(): 
+    Tk()
+    messagebox.showwarning("Add transaction", "Under mantainance")
+
+def statistic():
+    Tk()
+    messagebox.showwarning("Overall spending", "Under mantainance")
+
+def save_file(): 
+    Tk()
+    messagebox.showwarning("Savefile", "Can't save now")
+
+def load_file(): 
+    messagebox.showinfo( "Loading", "Please select file location")
+    folder_selected = filedialog.askdirectory()
+
+
+#Buttons Setup and legend
+
+#Outcome/income button
+out_in = Button(menu, text = 'Add transaction', bd = '5',command = out_in)
+out_in.pack(side = 'top')
+
+#Overall Graph button
+statistic  = Button(menu, text = 'Overall Spending', bd = '5',command = statistic)
+statistic.pack(side = 'top')
+
+#Save and Load file button
+save = Button(menu, text = 'Save File', bd = '5',command = save_file)
+save.pack(side = 'top')
+
+load  = Button(menu, text = 'Load File', bd = '5',command = load_file)
+load.pack(side = 'top')
+
+#Exit button
+exit = Button(menu, text = 'Exit', bd = '5',command = menu.destroy)
+exit.pack(side = 'top')
+
+#Setup time and Format
+present_date=dt.datetime.now()
+format_date=f"{present_date: Time %H : %M / %d %a %b %Y}"
+
+#Date Display
+date=Label(menu, text=format_date)
+date.pack(side = 'right')
+
+
+#Execute menu
+menu.mainloop()
