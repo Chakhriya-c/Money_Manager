@@ -23,9 +23,12 @@ Requirements of the program
 
 Date +Income/-Expense Description
 For example:
-1/5/2022 +22000 Salary <ENTER>
-1/5/2022 -1500 Gas <ENTER>
-1/5/2022 -350 Food <ENTER>
+
+1/5/2022 +22000 Salary 
+ 
+1/5/2022 -1500 Gas 
+ 
+1/5/2022 -350 Food 
 
 2. Display summary daily or monthly using tabular form.
  
