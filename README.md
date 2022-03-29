@@ -21,14 +21,14 @@ Requirements of the program
 
 1. User can enter income and expense using normal ledger format i.e.
 
-Date +Income/-Expense Description
-For example:
+   Date +Income/-Expense Description
+   For example:
 
-1/5/2022 +22000 Salary 
+   1/5/2022 +22000 Salary 
  
-1/5/2022 -1500 Gas 
+   1/5/2022 -1500 Gas 
  
-1/5/2022 -350 Food 
+   1/5/2022 -350 Food 
 
 2. Display summary daily or monthly using tabular form.
  
