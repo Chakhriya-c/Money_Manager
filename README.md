@@ -39,10 +39,10 @@ Requirements of the program
  
 *Developers :*
 
- *1.Kanyanat Prapawesang
+ *1.Kanyanat Prapawesang*
  
- *2.Punyada Adisaksodsai
+ *2.Punyada Adisaksodsai*
  
- *3.Chakhriya Chantharakhami 
+ *3.Chakhriya Chantharakhami*
  
 *Major - Automation Robotics and Intelligence System Engineering*
