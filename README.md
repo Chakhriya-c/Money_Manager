@@ -1,6 +1,15 @@
 # Money Manager
 
-For Computer programing project 
+Money Manager program for Computer programing project.
+
+Structure
+
+ - About this program
+ - Program Fetures 
+ - User Guide
+ - For Instuctor section.
+
+# About this program
 
 # Program Features
 
@@ -28,7 +37,9 @@ For example:
 Developers :
 
 Kanyanat Prapawesang 
+ 
 Punyada Adisaksodsai
+ 
 Chakhriya Chantharakhami 
  
 Major - Automation Robotics and Intelligence System Engineering 
