@@ -12,6 +12,7 @@ Structure
 # About this program
 
 # Program Features
+There are many feature in this program.
 
 - Adding up to date transaction 
 - Classify what you spend your money for
@@ -19,7 +20,7 @@ Structure
 - Save / Load files
 - Easy to use GUI
 
-and more!
+If We have enough time, we will add more function.
 
 # User Guide 
 
