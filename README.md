@@ -13,6 +13,14 @@ Structure
 
 # Program Features
 
+- Adding up to date transaction 
+- Classify what you spend your money for
+- Show total daily / monthly expense as numerical text and Pie chart 
+- Save / Load files
+- Easy to use GUI
+
+and more!
+
 # User Guide 
 
 # For Instructor; Project Requirement and etc.
