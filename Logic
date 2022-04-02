@@ -1,0 +1,117 @@
+#setup program libary
+import datetime as dt #Date time    
+import csv             #flie csv
+from csv import DictWriter  #writing csv 
+import pandas as pd     #table 
+
+date = dt.datetime.now() #Date and time
+history = {"Date":[],"Category": [], "Income/Outcome": [], "Total": []} #Data storage
+
+myheaders = ["Date","Category", "Income/Outcome", "Total"] #For visualizing data
+
+"""
+Dictionary + Array 
+{Key:value}
+money = A 50 bath
+B 30 bath
+
+money = {A : 50, B : 30}
+money[A] = 50
+money[B] = 30 
+
+Dictionary + []
+
+type : [Food, Drive, House] 
+
+"""
+
+def save_file():
+    # name of csv file 
+    filename = "university_records.csv"
+
+    with open("university_records.csv", "w") as outfile:
+    
+        # creating a csv writer object
+        writerfile = csv.writer(outfile)
+        
+        # writing dictionary keys as headings of csv
+        writerfile.writerow(history.keys())
+        
+        # writing list of dictionary
+        writerfile.writerows(zip(*history.values()))
+
+def show_table():
+    data= pd.read_csv("university_records.csv")
+    print (data)
+
+def main_function():
+    while True: 
+        #Menu 
+        print ("Select the option")
+        print ("Press s to Add transaction\n" + "Press m to see summary " + "Press l to load")
+        start = str(input())   #input start which option will be 
+    
+        if start == 's':
+            print ("insert your total money")
+            total = int(input())
+            print ("your total money is", total)
+
+        while start == 's':
+            print ("Do you want to insert income(i) or outcome(x)?")
+            print (" i or x; if you want to exit press n")
+            choice = str(input())
+
+            if choice == 'i':
+                print ("insert type of income") #type = Food Catfood ??? 
+                type = str(input())
+                print ("insert income")     #income = 10 20 30??? 
+                income = int(input())
+
+                total = total - (-income)
+
+                print (date, '| You spend your money on:', type, '| Your income is', income, '| total is :', total)
+                income = income
+
+                history['Date'].append(date.strftime("%d %b %Y/ %H : %M")) #mylist = [] / / mylist.append() -> mylist = [5, 6, 7...]
+                history['Category'].append(type)
+                history['Income/Outcome'].append(income)
+                history['Total'].append(total)
+                
+            elif choice == 'x':
+                print ("insert type of expense")
+                type = str(input())
+                print("insert expense")
+                income = int(input())
+
+                total = total - income 
+
+                print (date, '| You spend your money on:', type, '| Your expense is', income, '| total is :', total)
+
+                income = -income
+
+                history['Date'].append(date.strftime("%d %m %Y/ %H : %M")) #date.strftime(" ") -> format 02 04 2022 / 21:04 
+                history['Category'].append(type) #[Food, Cat food ]
+                history['Income/Outcome'].append(income) #[-50, -30]
+                history['Total'].append(total) #[250, 220]
+
+            elif choice == 'n': 
+                print("Exiting...")
+                print(history)
+                print("Saving your data...")
+
+                save_file()
+                show_table()
+                
+                break
+
+            else : 
+                print ("Error; Please Select you choice again!")
+            
+        if start == 'm':
+            show_table()
+
+        else :
+
+            break    
+
+main_function()
