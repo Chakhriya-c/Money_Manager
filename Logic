@@ -1,29 +1,12 @@
 #setup program libary
-import datetime as dt #Date time    
-import csv             #flie csv
+import datetime as dt       #Date time    
+import csv                  #flie csv
 from csv import DictWriter  #writing csv 
-import pandas as pd     #table 
+import pandas as pd         #table 
 
 date = dt.datetime.now() #Date and time
 history = {"Date":[],"Category": [], "Income/Outcome": [], "Total": []} #Data storage
-
 myheaders = ["Date","Category", "Income/Outcome", "Total"] #For visualizing data
-
-"""
-Dictionary + Array 
-{Key:value}
-money = A 50 bath
-B 30 bath
-
-money = {A : 50, B : 30}
-money[A] = 50
-money[B] = 30 
-
-Dictionary + []
-
-type : [Food, Drive, House] 
-
-"""
 
 def save_file():
     # name of csv file 
