@@ -3,17 +3,12 @@
 Money Manager program for Computer programing project.
 
 ## Tabel of content
+
 * [About this program](#about-this-program)
 * [Program Features](#program-features)
 * [User Guide](#user-guide )
 * [For Instructor](#for-instructor)
-
-Structure
-
- - About this program
- - Program Fetures 
- - User Guide
- - For Instuctor section.
+* [License](#license)
 
 # About this program
 
@@ -47,8 +42,8 @@ Requirements of the program
 2. Display summary daily or monthly using tabular form.
  
 3. Easy to use. Program might need a menu for user interface.
-
  
+# License
 *Teams :*
 
  *1.Kanyanat Prapawesang* as main function developer
