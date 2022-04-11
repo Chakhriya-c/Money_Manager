@@ -8,7 +8,7 @@ df = pd.read_csv('university_records.csv', usecols=headers) #read file
 print ("Insert Month:")
 month = input()
 
-#storing data
+#storing data3
 data_plot = []
 label_plot = []
 amount_of_data = len(df.Date)

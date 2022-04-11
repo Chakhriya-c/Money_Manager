@@ -1,0 +1,212 @@
+#initial library
+from tkinter import * 
+from tkinter import messagebox, filedialog
+from tkcalendar import DateEntry
+import datetime as dt
+import csv, os 
+import pandas as pd
+import pandastable as pt 
+from pandastable import Table
+import matplotlib.pyplot as plt
+
+#Main function setup
+history = {"Date":[],"Category": [], "Expense": [], "Type": []}
+headers = ["Date","Category", "Expense", "Type"]
+file_name = ""
+#Menu window setup
+menu = Tk()
+menu.geometry("250x200")
+
+#Function and Command Setup
+
+def transaction(): 
+
+    def date_change(*args): 
+        date_show.config(text= select_date.get())
+
+    #initial window 
+    tran_window = Tk()
+    tran_window.geometry("400x500")
+
+    #Date
+    Label(tran_window, text = "Select your date: ").pack()
+    select_date = StringVar(tran_window) 
+    date_collect = DateEntry(tran_window,selectmode='day',textvariable = select_date, date_pattern='dd/mm/y')
+    date_collect.pack()
+    
+    date_show = Label(tran_window)  
+    date_show.pack()
+    select_date.trace('w',date_change) #Making change to selected date
+
+    #expense detail entry
+    #Category
+    Label(tran_window, text="Insert category of your expense :").pack()
+    expense_category = Entry(tran_window)
+    expense_category.pack()
+
+    #Type
+    expense_type = StringVar(tran_window)
+
+    #Amount
+    Label(tran_window, text="Insert amount of your expense :").pack()
+    expense_amount = Entry(tran_window)
+    expense_amount.pack()
+
+    def add():
+        
+        amount = expense_amount.get()
+        type = expense_type.get()
+        date = date_collect.get()
+        category = expense_category.get()
+        
+        history['Date'].append(date)
+        history['Category'].append(category)
+        history['Expense'].append(amount)
+        history['Type'].append(type)
+
+        new_add = (date, category, amount, type)
+        Label(display_add, text=new_add).pack()
+    
+    
+        #lastest_show = Label(display_add, text = new_add)
+        #lastest_show.pack()
+        #Expense types selecting 
+    
+    #Button setup
+    income = Radiobutton(tran_window, variable=expense_type, value = "income", text= "Income")
+    income.pack()
+    outcome = Radiobutton(tran_window, variable=expense_type, value = "outcome", text= "Outcome")
+    outcome.pack()
+    
+    #Wrting Data
+    Button(tran_window, text = "Add to transaction", command=add).pack()
+    Button(tran_window, text = "Done", command = tran_window.destroy).pack()
+
+    #Displaying record
+    display_add = Frame(tran_window)
+    display_add.pack()      
+    
+def save():
+    # name of csv file 
+    save_as = filedialog.asksaveasfilename(title = "Select file", defaultextension=".csv", filetypes = [("CSV Files","*.csv")])
+    #filename = "Your_Transaction.csv"
+    if save_as:
+        filename = save_as
+        with open(filename, "a") as outfile:
+            
+            # creating a csv writer object
+            writerfile = csv.writer(outfile)
+            file_is_empty = os.stat(filename).st_size == 0
+
+            if file_is_empty:
+            # writing dictionary keys as headings of csv
+                writerfile.writerow(history.keys())
+            
+            # writing list of dictionary
+            writerfile.writerows(zip(*history.values()))
+        
+        display_table = Tk()
+        frame = Frame(display_table)
+        frame.pack(fill='both', expand=True)
+        df = pd.DataFrame(history)
+        pt = Table(frame, dataframe=df, overwrite= True)
+        pt.show()
+
+def graph():
+
+    selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
+    if selected_file:
+        path = os.path.abspath(selected_file.name)
+        file_name = os.path.basename(path)
+        
+    df = pd.read_csv(file_name, usecols=headers)
+    insert_month = Tk()
+    insert_month.title("Overall Spending")
+    insert_month.geometry("300x300")
+
+    Label(insert_month, text="Insert month and year in format mm/yyyy").pack()
+    my_month = Entry(insert_month)
+    my_month.pack()
+   
+    #storing data
+    
+    def get_month():
+        data_plot = []
+        label_plot = []
+        amount_of_data = len(df.Date)
+
+        for row in range(amount_of_data):
+            if my_month.get() == df.Date[row][3:]:   
+                if df.Type[row] == "outcome":
+                    selected_Category = df.Category[row]
+                    selected_Expense = abs(int((df.Expense[row])))
+
+                    data_plot.append(selected_Expense)
+                    label_plot.append(selected_Category)
+                    
+                else :
+                    pass
+        
+        #setting graph.
+        
+        print (label_plot, data_plot)
+        plt.pie(data_plot, labels= label_plot, autopct='%d%%')
+
+        #show graph
+        plt.title("Monthly Summary")
+        plot = plt.show()
+        Frame(insert_month, text=plot).pack()
+
+    Button(insert_month, text="Confirm", command=get_month).pack()
+
+def load_file(): 
+    selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
+    if selected_file:
+        path = os.path.abspath(selected_file.name)
+        file_name = os.path.basename(path)
+    
+    df = pd.read_csv(file_name, usecols=headers)
+    display_table = Tk()
+    frame = Frame(display_table)
+    frame.pack(fill='both', expand=True)
+    pt = Table(frame, dataframe=df, overwrite= True)
+    pt.show()
+    
+    
+    
+    
+    
+#Buttons Setup and legend
+
+#Outcome/income button
+out_in = Button(menu, text = 'Add transaction', bd = '5',command = transaction)
+out_in.pack(side = 'top')
+
+
+#Overall Graph button
+graph = Button(menu, text = 'Overall Spending', bd = '5',command = graph)
+graph.pack(side = 'top')
+
+#Save and Load file button
+save = Button(menu, text = 'Save File', bd = '5',command = save)
+save.pack(side = 'top')
+
+load  = Button(menu, text = 'Load File', bd = '5',command = load_file)
+load.pack(side = 'top')
+
+#Exit button
+exit = Button(menu, text = 'Exit', bd = '5',command = menu.destroy)
+exit.pack(side = 'top')
+
+#Setup time and Format
+date = dt.datetime.now()
+present_date=date.strftime("%d %m %Y" + " | " "%H : %M")
+
+
+#Date Display
+date=Label(menu, text=present_date)
+date.pack(side = 'right')
+
+
+#Execute menu
+menu.mainloop()
