@@ -46,12 +46,12 @@ Requirements of the program
  
  
  
-*Developers :*
+*Teams :*
 
- *1.Kanyanat Prapawesang*
+ *1.Kanyanat Prapawesang* as main function developer
  
- *2.Punyada Adisaksodsai*
+ *2.Punyada Adisaksodsai* as graphing and statistics function developer
  
- *3.Chakhriya Chantharakhami*
+ *3.Chakhriya Chantharakhami* as GUI developer 
  
 *Major - Automation Robotics and Intelligence System Engineering*
