@@ -1,7 +1,7 @@
 # Money Manager
 
 Money Manager program for Computer programing project.
-Hi
+
 Structure
 
  - About this program
@@ -12,15 +12,13 @@ Structure
 # About this program
 
 # Program Features
-There are many feature in this program.
 
-- Adding up to date transaction 
-- Classify what you spend your money for
-- Show total daily / monthly expense as numerical text and Pie chart 
-- Save / Load files
+- Record your expenses in detail.
+- Classify what you spend your money for.
+- Show percentage of monthly expenses as saveable Pie chart.
+- Save file.
+- Load file and show all data records as a statics tabel.
 - Easy to use GUI
-
-If We have enough time, we will add more function.
 
 # User Guide 
 
@@ -43,8 +41,6 @@ Requirements of the program
  
 3. Easy to use. Program might need a menu for user interface.
 
- 
- 
  
 *Teams :*
 
