@@ -2,6 +2,12 @@
 
 Money Manager program for Computer programing project.
 
+## Tabel of content
+* [About this program](#about-this-program)
+* [Program Features](#program-features)
+* [User Guide](#user-guide )
+* [For Instructor](#for-instructor)
+
 Structure
 
  - About this program
@@ -22,7 +28,8 @@ Structure
 
 # User Guide 
 
-# For Instructor; Project Requirement and etc.
+# For Instructor 
+## Project Requirement and etc.
 
 Requirements of the program 
 
