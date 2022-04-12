@@ -12,7 +12,7 @@ Money Manager program (Python based) for Computer programing project.
 
 # About this program
 
-You can read about this program in User manual.pdf (TH version)
+You can read about this program in About this program.md (TH version)
 
 # Program Features
 
@@ -24,7 +24,7 @@ You can read about this program in User manual.pdf (TH version)
 
 # User Guide 
 
-You can read user guide in User manual.pdf (TH version)
+You can read user guide in About this program.md (TH version)
 
 # For Instructor 
 ## Project Requirement and etc.
