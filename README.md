@@ -1,6 +1,6 @@
 # Money Manager
 
-Money Manager program for Computer programing project.
+Money Manager program (Python based) for Computer programing project. 
 
 ## Tabel of content
 
@@ -11,7 +11,6 @@ Money Manager program for Computer programing project.
 * [License](#license)
 
 # About this program
-
 # Program Features
 
 - Record your expenses in detail.
