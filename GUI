@@ -12,10 +12,11 @@ import matplotlib.pyplot as plt
 #Main function setup
 history = {"Date":[],"Category": [], "Expense": [], "Type": []}
 headers = ["Date","Category", "Expense", "Type"]
-file_name = ""
+
 #Menu window setup
 menu = Tk()
-menu.geometry("250x200")
+menu.title("Money Manager")
+menu.geometry("250x250")
 
 #Function and Command Setup
 
@@ -26,6 +27,7 @@ def transaction():
 
     #initial window 
     tran_window = Tk()
+    tran_window.title("Transaction Manager")
     tran_window.geometry("400x500")
 
     #Date
@@ -120,12 +122,12 @@ def graph():
         file_name = os.path.basename(path)
         
     df = pd.read_csv(file_name, usecols=headers)
-    insert_month = Tk()
-    insert_month.title("Overall Spending")
-    insert_month.geometry("300x300")
+    overall_month = Tk()
+    overall_month.title("Monthly Overall")
+    overall_month.geometry("300x300")
 
-    Label(insert_month, text="Insert month and year in format mm/yyyy").pack()
-    my_month = Entry(insert_month)
+    Label(overall_month, text="Insert month and year in format mm/yyyy").pack()
+    my_month = Entry(overall_month)
     my_month.pack()
    
     #storing data
@@ -155,11 +157,11 @@ def graph():
         #show graph
         plt.title("Monthly Summary")
         plot = plt.show()
-        Frame(insert_month, text=plot).pack()
+        Frame(overall_month, text=plot).pack()
 
-    Button(insert_month, text="Confirm", command=get_month).pack()
+    Button(overall_month, text="Confirm", command=get_month).pack()
 
-def load_file(): 
+def all_records(): 
     selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
     if selected_file:
         path = os.path.abspath(selected_file.name)
@@ -167,46 +169,42 @@ def load_file():
     
     df = pd.read_csv(file_name, usecols=headers)
     display_table = Tk()
+    display_table.title("All Records")
     frame = Frame(display_table)
     frame.pack(fill='both', expand=True)
     pt = Table(frame, dataframe=df, overwrite= True)
     pt.show()
     
-    
-    
-    
-    
-#Buttons Setup and legend
+
+#Menu Buttons Setup 
+Label(menu, text="Welcome to Money Manager!").pack()
 
 #Outcome/income button
-out_in = Button(menu, text = 'Add transaction', bd = '5',command = transaction)
-out_in.pack(side = 'top')
-
+tran = Button(menu, text = 'Add transaction', bd = '5',width=12,command = transaction)
+tran.pack(side = 'top')
 
 #Overall Graph button
-graph = Button(menu, text = 'Overall Spending', bd = '5',command = graph)
+graph = Button(menu, text = 'Monthly Overall', bd = '5',width=12,command = graph)
 graph.pack(side = 'top')
 
 #Save and Load file button
-save = Button(menu, text = 'Save File', bd = '5',command = save)
+save = Button(menu, text = 'Save File', bd = '5',width=12,command = save)
 save.pack(side = 'top')
 
-load  = Button(menu, text = 'Load File', bd = '5',command = load_file)
-load.pack(side = 'top')
+record = Button(menu, text = 'Show all records', bd = '5',width=12,command = all_records)
+record.pack(side = 'top')
 
 #Exit button
-exit = Button(menu, text = 'Exit', bd = '5',command = menu.destroy)
+exit = Button(menu, text = 'Exit', bd = '5',width=12,command = menu.destroy)
 exit.pack(side = 'top')
 
 #Setup time and Format
 date = dt.datetime.now()
-present_date=date.strftime("%d %m %Y" + " | " "%H : %M")
-
+present_date=date.strftime("Date : "+"%d / %m / %Y")
 
 #Date Display
 date=Label(menu, text=present_date)
 date.pack(side = 'right')
-
 
 #Execute menu
 menu.mainloop()
