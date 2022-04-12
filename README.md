@@ -17,9 +17,8 @@ You can read about this program in User manual.pdf (TH version)
 # Program Features
 
 - Record your expenses in detail.
-- Classify what you spend your money for.
-- Show percentage of monthly expenses as saveable Pie chart.
-- Save file.
+- Show percentage of monthly expenses as a Pie chart.
+- Save file as csv.
 - Load file and show all data records as a statics tabel.
 - Easy to use GUI
 
