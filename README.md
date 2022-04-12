@@ -23,6 +23,8 @@ Money Manager program for Computer programing project.
 
 # User Guide 
 
+You can read user guide in User Manual.pdf (TH version)
+
 # For Instructor 
 ## Project Requirement and etc.
 
