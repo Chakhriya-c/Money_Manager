@@ -135,6 +135,7 @@ def graph():
     def get_month():
         data_plot = []
         label_plot = []
+        date_plot = []
         amount_of_data = len(df.Date)
 
         for row in range(amount_of_data):
@@ -142,22 +143,25 @@ def graph():
                 if df.Type[row] == "outcome":
                     selected_Category = df.Category[row]
                     selected_Expense = abs(int((df.Expense[row])))
-
+                    selected_Date = pd.to_datetime(df['Date'])
                     data_plot.append(selected_Expense)
                     label_plot.append(selected_Category)
-                    
+                    date_plot.append(date_plot)
                 else :
                     pass
         
         #setting graph.
-        
-        print (label_plot, data_plot)
         plt.pie(data_plot, labels= label_plot, autopct='%d%%')
+        
+        #table
+        
 
         #show graph
+        plt.tight_layout()
         plt.title("Monthly Summary")
         plot = plt.show()
-        Frame(overall_month, text=plot).pack()
+       
+       
 
     Button(overall_month, text="Confirm", command=get_month).pack()
 
