@@ -26,7 +26,18 @@ Users will be able to specify their income and expenses in the section of the in
 
 After you've filled in all of the information, the system will save it in dictionary and list format for easy access. And store data in the Dictionary's Value section, which is divided into four keys: Date (date), Category (details), Expense (amount), and Type (Type)
 
-3. Access to a complete history of all income and expenses.
+2. Saving and loading of files
+The user can save files under any name they want with this program. It can also read files from any folder on the machine, not just the one where the program is installed. However, it must be saved as a.csv file.
+
+3. Monthly total expenditure
+
+It is indicated in the resulting graph.
+- The paid-for category 
+- The paid-for percentage 
+
+so that users can read and it's easy to see if they're spending too much.
+
+4. Access to a complete history of all income and expenses.
 
 Taking into account all of the transactions that have been recorded. The program reads values from .csv file, saves them as a dataframe, and then displays them in a tabular format.
 
