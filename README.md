@@ -27,6 +27,7 @@ Users will be able to specify their income and expenses in the section of the in
 After you've filled in all of the information, the system will save it in dictionary and list format for easy access. And store data in the Dictionary's Value section, which is divided into four keys: Date (date), Category (details), Expense (amount), and Type (Type)
 
 2. Saving and loading of files
+
 The user can save files under any name they want with this program. It can also read files from any folder on the machine, not just the one where the program is installed. However, it must be saved as a.csv file.
 
 3. Monthly total expenditure
