@@ -1,17 +1,17 @@
 #initial library
-from tkinter import * 
-from tkinter import messagebox, filedialog
-from tkcalendar import DateEntry
-import datetime as dt
-import csv, os 
-import pandas as pd
-import pandastable as pt 
+from tkinter import *                       #For Creating GUI
+from tkinter import messagebox, filedialog  
+from tkcalendar import DateEntry            
+import datetime as dt                       #For datetime displaying
+import pandas as pd                         #For Creating Dataframe 
+import pandastable as pt                    #For Tabel displaying and Graph plotting on GUI
 from pandastable import Table
-import matplotlib.pyplot as plt
-
+import matplotlib.pyplot as plt 
+import csv, os                              #File Writing & Reading, Collect file path 
+            
 #Main function setup
-history = {"Date":[],"Category": [], "Expense": [], "Type": []}
-headers = ["Date","Category", "Expense", "Type"]
+history = {"Date":[],"Category": [], "Expense": [], "Type": []}     #store data
+headers = ["Date","Category", "Expense", "Type"]                    #Tabel and data header 
 
 #Menu window setup
 menu = Tk()
@@ -56,7 +56,7 @@ def transaction():
 
     def add():
         
-        amount = expense_amount.get()
+        amount = expense_amount.get()   
         type = expense_type.get()
         date = date_collect.get()
         category = expense_category.get()
@@ -68,11 +68,6 @@ def transaction():
 
         new_add = (date, category, amount, type)
         Label(display_add, text=new_add).pack()
-    
-    
-        #lastest_show = Label(display_add, text = new_add)
-        #lastest_show.pack()
-        #Expense types selecting 
     
     #Button setup
     income = Radiobutton(tran_window, variable=expense_type, value = "income", text= "Income")
@@ -115,7 +110,6 @@ def save():
         pt.show()
 
 def graph():
-
     selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
     if selected_file:
         path = os.path.abspath(selected_file.name)
@@ -131,7 +125,6 @@ def graph():
     my_month.pack()
    
     #storing data
-    
     def get_month():
         data_plot = []
         label_plot = []
@@ -153,15 +146,10 @@ def graph():
         #setting graph.
         plt.pie(data_plot, labels= label_plot, autopct='%d%%')
         
-        #table
-        
-
         #show graph
         plt.tight_layout()
         plt.title("Monthly Summary")
         plot = plt.show()
-       
-       
 
     Button(overall_month, text="Confirm", command=get_month).pack()
 
@@ -179,7 +167,6 @@ def all_records():
     pt = Table(frame, dataframe=df, overwrite= True)
     pt.show()
     
-
 #Menu Buttons Setup 
 Label(menu, text="Welcome to Money Manager!").pack()
 
