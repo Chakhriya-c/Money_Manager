@@ -12,25 +12,23 @@ Money Manager program (Python based) for Computer programing project.
 
 # About this program
 
-โปรแกรมนี้มีจุดประสงค์เพื่อบันทึกรายรับรายจ่ายของผู้ใช้ และสามารถบันทึกข้อมูลเพื่อดูบันทึกย้อนหลัง หรือดูภาพรวมของการใช้จ่ายได้ เพื่อการจัดการและบริหารรายรับรายจ่ายอย่างมีประสิทธิภาพ นอกจากนี้ยังมี GUI (Graphic User Interface) และ คู่มือ (User manual) ที่ทำให้ผู้ใช้งานสามารถใช้งานได้ง่าย และเรียนรู้การใช้งานโปรแกรมได้ไวขึ้นอีกด้วย
+This program is designed to keep track of a user's earnings and expenses. and can save the data to view previous records or get a quick overview of spending for better income and expense management. It also has a user manual and a GUI (Graphic User Interface) that make it simple to learn how to use the program more quickly.
 
-โปรแกรมนี้ถูกเขียนขึ้นด้วยภาษา Python ทั้งการทำ Back-End และ Front-End มีฟังก์ชั่นการใช้งานรวมทั้งหมด 4 ฟังก์ชั่นหลัก สามารถบันทึกและอ่านข้อมูลโดยจะอยู่ในรูปแบบไฟล์นามสกุล .csv ที่สามารถนำไปใช้งานควบคู่กับโปรแกรม Microsoft Excel ได้ ฟังก์ชั่นหลักนั้นจะสามารถเขียนอธิบายออกมาได้ดังนี้
+This program is written in Python and involves both a Back-End and a Front-End. There are a total of four main functions included with it. Data can be saved and read in the.csv file format, which is compatible with Microsoft Excel. The following is a list of the main functions.
 
-1.การบันทึกรายรับรายจ่าย ในส่วนของบันทึกรายรับรายจ่าย ผู้ใช้จะสามารถระบุ
+1. Keep track of your income and expenses.
 
-วันที่ทำธุรกรรม เช่น ปัจจุบัน, ย้อนหลัง, ในอนาคต
-ประเภทของธุรกรรม เช่น รายรับ,รายจ่าย
-รายละเอียดธุรกรรม เช่น ค่าที่พัก, เงินเดือน
-จำนวนเงิน
-หลังจากกรอกรายละเอียดข้อมูลแล้วระบบจะบันทึกไว้ในที่เก็บข้อมูล ประเภท Dictionary และ List เพื่อให้ง่ายต่อการเก็บ และเรียกใช้งาน โดยใน Dictionary จะแบ่งออกเป็น 4 Keys เพื่อเก็บค่า ได้แก่ Date (วันที่), Category (รายละเอียด), Expense (จำนวนเงิน), Type (ประเภท) และในส่วนของ Value ใน Dictionary จะเก็บเป็นข้อมูลประเภท List
+Users will be able to specify their income and expenses in the section of the income and expenses record.
 
-2.การบันทึก และโหลดข้อมูล ในส่วนของการบันทึก และโหลดข้อมูลนั้นทางผู้พัฒนาได้ใช้ไฟล์ประเภท .csv เพื่อให้ง่ายต่อการเขียน อ่าน และนำไปใช้ต่อ ในการบันทึกโปรแกรมจะทำการดึงข้อมูลจาก Dictionary ไปเขียนลงในไฟล์ .csv และทำการบันทึกไฟล์ เมื่อต้องการโหลดไฟล์ โปรแกรมจะทำการอ่านไฟล์ .csv ที่เลือก และนำข้อมูลมาแสดงในรูปแบบของ dataframe โปรแกรมนี้ผู้ใช้สามารถบันทึกไฟล์ในชื่อที่ต้องการได้ และสามารถอ่านไฟล์ที่เลือกจากที่ใดก็ได้ในเครื่องไม่จำเป็นต้องอยู่ในโฟลเดอร์เดียวกันกับโปรแกรม แต่ต้องอยู่ในรูปแบบของไฟล์ .csv
+- Dates of transactions such as current, past, and future
+- Types of transactions ex. Income, Expense
+- Details about the transaction, such as the cost of lodging and the amount of the salary
 
-การเรียกกราฟรายจ่ายในแต่ละเดือน ผู้พัฒนาได้ทำฟังก์ชั่นเพื่อแสดงกราฟในโปรแกรม โดยอ่านค่าจากไฟล์ .csv แล้วบันทึกไว้ในรูปแบบ dataframe หลังจากนั้นจึงใช้ libary เพื่ออ่านค่าใน dataframe และนำมาพลอตกราฟ โดยในกราฟที่ได้จะมีการระบุ ประเภทของสิ่งที่จ่ายไปว่าสิ่งที่จ่ายไปนั้นคิดเป็นกี่ % ของรายจ่ายทั้งหมด เพื่อที่ผู้ใช้งานจะสามารถอ่าน และสังเกตได้ง่ายว่า ใช้จ่ายสิ่งใดมากกว่า หรือน้อยกว่ากัน
+After you've filled in all of the information, the system will save it in dictionary and list format for easy access. And store data in the Dictionary's Value section, which is divided into four keys: Date (date), Category (details), Expense (amount), and Type (Type)
 
-3.การเข้าดูประวัติรายรับรายจ่ายที่เคยบันทึกไว้ทั้งหมด
+3. Access to a complete history of all income and expenses.
 
-ในส่วนของการดูรายการธุรกรรมทั้งหมดที่เคยบันทึกไว้นั้น โปรแกรมจะอ่านค่าจากไฟล์ .csv และบันทึกไว้ในรูปแบบ dataframe หลังจากนั้นจึงนำมาแสดงผลในรูปแบบตารางบนตัวโปรแกรม
+Taking into account all of the transactions that have been recorded. The program reads values from .csv file, saves them as a dataframe, and then displays them in a tabular format.
 
 # Program Features
 
