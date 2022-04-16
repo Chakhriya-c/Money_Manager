@@ -72,8 +72,8 @@ def transaction():
     #Button setup
     income = Radiobutton(tran_window, variable=expense_type, value = "income", text= "Income")
     income.pack()
-    outcome = Radiobutton(tran_window, variable=expense_type, value = "outcome", text= "Outcome")
-    outcome.pack()
+    expense = Radiobutton(tran_window, variable=expense_type, value = "expense", text= "Expense")
+    expense.pack()
     
     #Wrting Data
     Button(tran_window, text = "Add to transaction", command=add).pack()
@@ -133,7 +133,7 @@ def graph():
 
         for row in range(amount_of_data):
             if my_month.get() == df.Date[row][3:]:   
-                if df.Type[row] == "outcome":
+                if df.Type[row] == "expense":
                     selected_Category = df.Category[row]
                     selected_Expense = abs(int((df.Expense[row])))
                     selected_Date = pd.to_datetime(df['Date'])
