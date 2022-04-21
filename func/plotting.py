@@ -1,8 +1,8 @@
 import pandas as pd 
 import matplotlib.pyplot as plt 
 
-headers = ["Date","Category","Expense","Total"]
-df = pd.read_csv('university_records.csv', usecols=headers)
+headers = ["Date","Category","Expense","Type"]
+df = pd.read_csv('Sample data.csv', usecols=headers)
 
 #Insert Month
 print("Insert Month")
@@ -27,7 +27,9 @@ for row in range(len(df.Date)):
         else :
             pass
 #setting graph.
-plt.pie(data_plot, labels = label_plot, explode=[0, 0.1, 0.1, 0.1], autopct='%d%%')
+plt.pie(data_plot, labels = label_plot, autopct='%d%%')
 
 #show graph
 plt.show()
+
+print (df)

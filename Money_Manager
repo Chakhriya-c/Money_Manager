@@ -32,7 +32,7 @@ def transaction():
 
     #Date
     Label(tran_window, text = "Select your date: ").pack()
-    select_date = StringVar(tran_window) 
+    select_date = StringVar(tran_window)                        #Date Var
     date_collect = DateEntry(tran_window,selectmode='day',textvariable = select_date, date_pattern='dd/mm/y')
     date_collect.pack()
     
@@ -43,15 +43,15 @@ def transaction():
     #expense detail entry
     #Category
     Label(tran_window, text="Insert category of your expense :").pack()
-    expense_category = Entry(tran_window)
+    expense_category = Entry(tran_window)   #Category entry 
     expense_category.pack()
 
     #Type
-    expense_type = StringVar(tran_window)
+    expense_type = StringVar(tran_window)   #Type entry
 
     #Amount
-    Label(tran_window, text="Insert amount of your expense :").pack()
-    expense_amount = Entry(tran_window)
+    Label(tran_window, text="Insert amount of your expense :").pack()   
+    expense_amount = Entry(tran_window)     #Expense entry 
     expense_amount.pack()
 
     def add():
@@ -66,7 +66,7 @@ def transaction():
         history['Expense'].append(amount)
         history['Type'].append(type)
 
-        new_add = (date, category, amount, type)
+        new_add = (date, category, amount, type)        #Show new record
         Label(display_add, text=new_add).pack()
     
     #Button setup
@@ -110,7 +110,9 @@ def save():
         pt.show()
 
 def graph():
+
     selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
+
     if selected_file:
         path = os.path.abspath(selected_file.name)
         file_name = os.path.basename(path)
@@ -121,14 +123,13 @@ def graph():
     overall_month.geometry("300x300")
 
     Label(overall_month, text="Insert month and year in format mm/yyyy").pack()
-    my_month = Entry(overall_month)
+    my_month = Entry(overall_month)         #select month
     my_month.pack()
    
     #storing data
     def get_month():
         data_plot = []
         label_plot = []
-        date_plot = []
         amount_of_data = len(df.Date)
 
         for row in range(amount_of_data):
@@ -147,7 +148,6 @@ def graph():
         plt.pie(data_plot, labels= label_plot, autopct='%d%%')
         
         #show graph
-        plt.tight_layout()
         plt.title("Monthly Summary")
         plot = plt.show()
 
@@ -155,12 +155,13 @@ def graph():
 
 def all_records(): 
     selected_file = filedialog.askopenfile(title = "Select file",filetypes = [("CSV Files","*.csv")])
+
     if selected_file:
         path = os.path.abspath(selected_file.name)
         file_name = os.path.basename(path)
     
     df = pd.read_csv(file_name, usecols=headers)
-    display_table = Tk()
+    display_table = Tk()                            
     display_table.title("All Records")
     frame = Frame(display_table)
     frame.pack(fill='both', expand=True)
